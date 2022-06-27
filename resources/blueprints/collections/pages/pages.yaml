@@ -1,0 +1,98 @@
+title: Pages
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: replicator_field
+        field:
+          collapse: false
+          sets:
+            section:
+              display: Section
+              fields:
+                -
+                  handle: stuff
+                  field:
+                    antlers: false
+                    display: Stuff
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: link_to
+                  field:
+                    collections:
+                      - articles
+                    display: 'Link to'
+                    type: link
+                    icon: link
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: link_text
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Link Text'
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: 'Replicator Field'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: link_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Link Text'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: link_to
+        field:
+          collections:
+            - pages
+            - articles
+          display: 'Link To'
+          type: link
+          icon: link
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
